@@ -5,14 +5,14 @@ import { terser } from 'rollup-plugin-terser'
 export default [
     {
         input: 'src/index.ts',
-        external: [Object.keys(pkg.dependencies) || {}],
-        plugins: [
-            typescript(),
-            terser()
-        ],
         output: {
             file: pkg.main, 
             format: 'cjs'
         },
+        external: ['amqplib', 'uuid'],
+        plugins: [
+            typescript(),
+            terser()
+        ],
     }
 ]
